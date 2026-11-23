@@ -6,7 +6,7 @@
 
 [用 GitHub Codespaces 打开](https://codespaces.new/coffeeliuwei/market-cycle-research?quickstart=1)
 
-登录 GitHub，有本仓库访问权限的试用者即可创建 Codespace。首次启动会安装 PowerShell、初始化虚构账户和合成行情，并打开生成的三市场样本分析。报告覆盖月季方向、周期预警、A 股板块筛选、分账户挂单复核、BTC 回测和行动清单。可在浏览器编辑器中切换到 Markdown 预览。
+登录 GitHub 即可使用个人 Codespaces 额度创建试用环境。首次启动会安装 PowerShell、初始化虚构账户和合成行情，并打开生成的三市场样本分析。报告覆盖月季方向、周期预警、A 股板块筛选、分账户挂单复核、BTC 回测和行动清单。可在浏览器编辑器中切换到 Markdown 预览。
 
 体验其他模块时，可在 Codespaces 的终端运行下面的命令。
 
@@ -16,7 +16,7 @@ pwsh -NoProfile -File research/btc-paired.ps1
 pwsh -NoProfile -File tests/Run-All.ps1
 ```
 
-在线环境使用离线样本，适合试用账户、周期和回测流程。依赖本机 TradingView Desktop 的实时采集按下方联网说明运行。Codespaces 的可用额度取决于试用者的 GitHub 账户。仓库目前为私有，向试用者分享时需先授予仓库访问权限。
+在线环境使用离线样本，适合试用账户、周期和回测流程。依赖本机 TradingView Desktop 的实时采集按下方联网说明运行。Codespaces 的可用额度取决于试用者的 GitHub 账户。
 
 ## Windows 本机运行
 
@@ -24,7 +24,7 @@ pwsh -NoProfile -File tests/Run-All.ps1
 
 ### 第 1 步　把项目下载到电脑
 
-1. 登录有仓库访问权限的 GitHub 账号。在本页文件列表上方，点绿色 **Code**，再点 **Download ZIP**。
+1. 在本页文件列表上方，点绿色 **Code**，再点 **Download ZIP**。
 2. 打开 Windows 的**下载**文件夹，找到刚下载的 ZIP。右键点击它，选择**全部解压缩**。
 3. 打开解压后的文件夹，直到同一层能看到 **README.md** 和 **scripts** 文件夹。后面的命令都在这个位置运行。
 
