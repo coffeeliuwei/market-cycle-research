@@ -18,19 +18,72 @@ pwsh -NoProfile -File tests/Run-All.ps1
 
 在线环境使用离线样本，适合试用账户、周期和回测流程。依赖本机 TradingView Desktop 的实时采集按下方联网说明运行。Codespaces 的可用额度取决于试用者的 GitHub 账户。仓库目前为私有，向试用者分享时需先授予仓库访问权限。
 
-## 首次使用（离线样本）
-使用 PowerShell 7，在仓库根目录运行：
-```powershell
-./scripts/init-demo.ps1
-./scripts/get-compact-account-context.ps1
-./scripts/get-effective-decisions.ps1
-./scripts/get-weekly-cycle-context.ps1 -AsOf '2019-11-24T12:00:00Z'
-./scripts/find-research-cases.ps1 -Terms 行业
-./scripts/market-forecast.ps1 -Action list
-./research/btc-paired.ps1
-./tests/Run-All.ps1
+## Windows 本机运行
+
+第一次先跑样本。你只需要安装 **PowerShell 7**，就能生成和在线试用一样的三市场报告。样本使用虚构账户和合成行情。
+
+### 第 1 步　把项目下载到电脑
+
+1. 登录有仓库访问权限的 GitHub 账号。在本页文件列表上方，点绿色 **Code**，再点 **Download ZIP**。
+2. 打开 Windows 的**下载**文件夹，找到刚下载的 ZIP。右键点击它，选择**全部解压缩**。
+3. 打开解压后的文件夹，直到同一层能看到 **README.md** 和 **scripts** 文件夹。后面的命令都在这个位置运行。
+
+### 第 2 步　安装 PowerShell 7
+
+按 Windows 开始键，输入 **cmd**，打开**命令提示符**。复制下面一行，粘贴进去，按回车。
+
+```cmd
+winget install --id Microsoft.PowerShell --exact --source winget
 ```
-初始化会从 examples/state 生成本地 state，并生成 PORTFOLIO.md。初始化仅适用于没有 state 目录的新副本。样本日期固定，以当天时间读取会报告陈旧。研究样本只用于验证流程。
+
+安装结束后关掉命令提示符。如果电脑提示找不到 winget，可以下载微软提供的安装包，双击后按提示安装。[微软 PowerShell 7 安装指南](https://learn.microsoft.com/zh-cn/powershell/scripting/install/installing-powershell-on-windows)
+
+### 第 3 步　在项目文件夹运行
+
+回到同时能看到 **README.md** 和 **scripts** 的文件夹。点击资源管理器上方显示文件夹路径的**地址栏**，输入 **cmd**，按回车。新开的黑色窗口会直接位于这个项目文件夹。
+
+先复制下面这一行并按回车。看到 `PowerShell 7.x.x` 就说明安装成功。
+
+```cmd
+pwsh --version
+```
+
+再复制下面这一行并按回车。首次运行会自动准备样本数据并生成报告。运行完成时，窗口会打印报告保存的位置。
+
+```cmd
+pwsh -NoProfile -File scripts/run-demo.ps1
+```
+
+### 第 4 步　打开报告
+
+在刚才的窗口再运行这一行，记事本会打开报告。
+
+```cmd
+notepad state\runtime\demo-report.md
+```
+
+报告标题是 **三市场投资分析 · 样本报告**。从上往下可以看到月季方向、周线周期、A 股筛选、账户与挂单、BTC 回测，最后是**现在怎么做**。如果你已经安装 VS Code，也可以在里面打开该文件，按 **Ctrl+Shift+V** 查看排版后的表格。
+
+项目文件夹里还会生成两份可以打开的结果。
+
+| 文件 | 可以看到什么 |
+|---|---|
+| `PORTFOLIO.md` | 样本账户、持仓、挂单和机器人 |
+| `state/runtime/btc-paired.csv` | 每轮 BTC 预警及等待确认后的比较结果，可用表格软件打开 |
+
+### 卡住时先检查这三项
+
+- **提示找不到 pwsh**。先关掉旧窗口，再按第 3 步重新打开一个。如果仍然找不到，回到第 2 步检查是否安装了 PowerShell 7。
+- **提示找不到 scripts/run-demo.ps1**。回到资源管理器，确认现在打开的是同时能看到 README.md 和 scripts 的那一层，再从地址栏输入 cmd。
+- **提示已有账户数据**。另解压一份 ZIP 到新文件夹，在新副本里试用，已有账户资料留在原处。
+
+想接入实时行情时，继续看下面的[联网采集](#联网采集)。想逐项试用账户摘要、周期计算和测试时，可以在同一窗口运行以下命令。
+
+```cmd
+pwsh -NoProfile -File scripts/get-compact-account-context.ps1
+pwsh -NoProfile -File scripts/get-weekly-cycle-context.ps1 -AsOf 2019-11-24T12:00:00Z
+pwsh -NoProfile -File tests/Run-All.ps1
+```
 
 ## 一次研究如何完成
 
