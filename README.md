@@ -16,7 +16,48 @@
 ```
 初始化会从 examples/state 生成本地 state，并生成 PORTFOLIO.md。初始化仅适用于没有 state 目录的新副本。样本日期固定，以当天时间读取会报告陈旧。研究样本只用于验证流程。
 
-## 项目入口
+## 一次研究如何完成
+
+以“复核组合里的买单”为例，项目先从本地事件流水还原各账户的持仓、可用资金和有效委托，再确定本轮要查的标的。美股相关产品按对应股票或指数研究，资金占用和订单仍按实际交易场所核算。单纯查询持仓时，可以直接读取账户摘要，省去行情刷新。
+
+| 环节 | 研究问题 | 可以复核的输出 |
+|---|---|---|
+| 核对账户 | 这是计划中的买单、已挂委托，还是已成交持仓？ | 分账户摘要、稳定事件编号、待核验项 |
+| 分市场研究 | A 股板块盈利处在周期哪一段？美股指数和 BTC 同向还是背离？ | 行业与公司证据、月度和季度情景、改变判断的条件 |
+| 查看周期位置 | 当前价格处于过去一年什么位置？相对基准的强弱有无背离？ | 三市场周线 Z、52 周价格分位、回撤和观测日期 |
+| 检验指标 | BTC 低位时加入 AHR999、高位时加入 Pi，等待确认是否值得？ | 同轮配对结果、13 周和 52 周表现、尚未到期的样本 |
+| 回到挂单 | 如果逐档成交，现金占用和风险是否仍可承受？ | 保留或复核哪些委托、下次观察条件；实际操作由使用者决定 |
+
+脚本负责采集、计算和记账；研究者或宿主助手依据知识库解释结果。预测在发布时记录观察日期、期限和失效条件，到期后再用同口径数据复核。完整步骤见[分析工作流](WORKFLOW.md)，报告结构见[分析输出模板](knowledge/analysis-template.md)。
+
+## 仓库目录导航
+
+| 目录 | 内容与入口 |
+|---|---|
+| [collectors/](collectors/) | 从 TradingView、A 股行情源、CoinGlass、Polymarket 和 X 读取数据。按来源排查原始报价或采集失败时从这里看。 |
+| [config/](config/) | 账户定义、标的范围、刷新预算、缓存窗口、舆情范围和官方数据源配置。 |
+| [docs/](docs/) | 数据源运行说明，含[如何核验失败与恢复](docs/analysis-source-incidents.md)。 |
+| [examples/](examples/) | 可复制的离线样本。[current](examples/state/current/) 放四个虚构账户的状态，[events](examples/state/events/) 放对应事件，[decisions](examples/state/decisions/) 放示例规则。 |
+| [knowledge/](knowledge/) | 分析方法和输出口径。可从[行业与市场研究索引](knowledge/research-index.md)、[周期与顶底方法](knowledge/bottom-top-methodology.md)或[预测及到期复核](knowledge/market-forecast.md)进入。 |
+| [research/](research/) | 可重复运行的回测。[三市场 Z 确认实验](research/z-confirmation.py)比较调仓规则，[BTC 配对实验](research/btc-paired.ps1)比较立即行动和等待确认。 |
+| [schemas/](schemas/) | 账户状态与行情刷新结果的 JSON 结构定义，方便接入其他程序。 |
+| [scripts/](scripts/) | 日常操作入口，包括初始化、账户摘要、行情刷新、预测登记、事件回放和数据校验。 |
+| [tests/](tests/) | 账户事件、长期规则、预测台账和采集器测试。[fixtures](tests/fixtures/) 放测试用输入或辅助用例。 |
+| [tradingview-mcp/](tradingview-mcp/) | TradingView 桌面桥接组件。[src](tradingview-mcp/src/) 含核心逻辑、命令行和工具，[scripts](tradingview-mcp/scripts/) 含启动脚本，[skills](tradingview-mcp/skills/) 和 [agents](tradingview-mcp/agents/) 提供图表研究说明，[tests](tradingview-mcp/tests/) 验证桥接行为。 |
+
+根目录的 [AGENTS.md](AGENTS.md) 与 [OPENCODE.md](OPENCODE.md) 分别供 Codex 和 OpenCode 读取，共用同一套工作流与本地账户状态。[opencode.jsonc](opencode.jsonc) 提供 OpenCode 的可选连接配置。
+
+### 初始化后在本机生成的文件
+
+| 位置 | 用途 |
+|---|---|
+| `PORTFOLIO.md` | 打开即可查看的账户总览，由当前账户数据生成。 |
+| `state/current/`、`state/events/`、`state/decisions/` | 当前账户、事件流水与长期决策。样本初始化后，在本机分别维护。 |
+| `state/cycle-weekly/v1/` | 三市场的成对周线，每行包含日期、资产价格和基准值。 |
+| `state/forecasts/`、`state/snapshots/` | 用于存放预测记录和按次保存的行情快照，便于到期复盘和核对当时证据。 |
+| `state/runtime/` | 运行所需的临时数据和研究结果，包括 BTC 配对回测输出。 |
+
+## 常用操作与规则
 - WORKFLOW.md 规定盘点、行情刷新、证据复核、预测和行动建议的顺序；AGENTS.md 与 OPENCODE.md 为两个宿主的入口。
 - scripts/record-account-event.ps1 按稳定事件编号处理提议、建单、部分成交、成交、撤单、余额、持仓和机器人变化；幂等更新事件流水、当前状态与总览。样本含四个账户和四个对应事件。
 - knowledge/ 保存分析模板、行业周期筛选、顶底判断、现货与网格方法。历史研究按 availableBy 截断。含账户策略的知识文件使用通用样本。
