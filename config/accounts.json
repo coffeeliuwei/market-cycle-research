@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "accounts": [
+    {
+      "label": "Demo ashare",
+      "stateFile": "state/current/ashare.json",
+      "ownership": "demo",
+      "userHasFullTradingAuthority": false,
+      "id": "ashare"
+    },
+    {
+      "label": "Demo binance",
+      "stateFile": "state/current/binance.json",
+      "ownership": "demo",
+      "userHasFullTradingAuthority": false,
+      "id": "binance"
+    },
+    {
+      "label": "Demo gate",
+      "stateFile": "state/current/gate.json",
+      "ownership": "demo",
+      "userHasFullTradingAuthority": false,
+      "id": "gate"
+    },
+    {
+      "label": "Demo ok",
+      "stateFile": "state/current/ok.json",
+      "ownership": "demo",
+      "userHasFullTradingAuthority": false,
+      "id": "ok"
+    }
+  ]
+}

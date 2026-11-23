@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "refresh-result.schema.json",
+  "type": "object",
+  "required": ["schemaVersion", "capturedAt", "complete", "symbolsRequested", "requiredTimeframes", "failures", "tradingView"],
+  "properties": {
+    "schemaVersion": {"const": 2},
+    "capturedAt": {"type": "string"},
+    "complete": {"type": "boolean"},
+    "symbolsRequested": {"type": "array", "items": {"type": "string"}},
+    "requiredTimeframes": {"const": ["D", "W", "M", "3M"]},
+    "failures": {"type": "array"},
+    "tradingView": {"type": ["object", "null"]},
+    "coinGlass": {"type": "array"},
+    "cryptoFearGreed": {"type": ["array", "null"]},
+    "polymarket": {"type": ["object", "null"]}
+  }
+}

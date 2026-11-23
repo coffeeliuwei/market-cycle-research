@@ -1,0 +1,33 @@
+{
+  "accountId": "gate",
+  "orders": [],
+  "schemaVersion": 1,
+  "bots": [
+    {
+      "eventId": "demo-bot",
+      "market": "spot",
+      "symbol": "ETHUSDT",
+      "recordId": "demo-grid",
+      "botId": "demo-grid",
+      "updatedAt": "2019-01-02T08:00:00+08:00",
+      "status": "running"
+    }
+  ],
+  "verificationRequired": true,
+  "observedAt": "2019-01-01T00:00:00Z",
+  "source": "synthetic-example",
+  "positions": [],
+  "balances": [],
+  "proposedOrders": [],
+  "deferredOrders": [],
+  "reservedFunds": [],
+  "stoppedBots": [],
+  "executionEvents": [],
+  "pendingVerifications": [],
+  "failedEvents": [],
+  "transfers": [],
+  "appliedEventIds": [
+    "demo-bot"
+  ],
+  "lastEventAt": "2019-01-02T08:00:00+08:00"
+}

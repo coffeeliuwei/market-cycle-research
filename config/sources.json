@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "requiredTimeframes": ["D", "W", "M", "3M"],
+  "tradingView": {
+    "required": true,
+    "parallel": false,
+    "cdpHost": "127.0.0.1",
+    "cdpPort": 9222,
+    "mutexName": "Local\\TradingviewAnalysisRefreshV2",
+    "mutexTimeoutSeconds": 60,
+    "deepMaxSymbols": 8,
+    "criticalBoundaryPercent": 10
+  },
+  "tradingViewScreener": {
+    "required": true,
+    "batch": true,
+    "endpoint": "https://scanner.tradingview.com/crypto/scan",
+    "timeoutSeconds": 15
+  },
+  "coinGlass": {
+    "required": false,
+    "cacheMaxAgeMinutes": 2880,
+    "cdpPortEnvironment": "COINGLASS_CDP_PORT",
+    "routes": [
+      "ahr999",
+      "bitcoin-mvrv-zscore",
+      "puell",
+      "pi cycle",
+      "200wma",
+      "bitcoin-net-unrealized-profit-loss",
+      "bitcoin-long-term-holder-mvrv"
+    ]
+  },
+  "polymarket": {
+    "required": false,
+    "query": "bitcoin"
+  },
+  "x": {
+    "required": false,
+    "query": "bitcoin",
+    "cacheMaxAgeMinutes": 30
+  },
+  "cryptoFearGreed": {
+    "required": false,
+    "url": "https://api.alternative.me/fng/?limit=2&format=json"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "contextMaxChars": 24000,
+  "snapshotSummaryMaxChars": 30000,
+  "pollMinimumSeconds": 60,
+  "maxFullRefreshesPerRun": 1,
+  "cryptoAnalysis": {
+    "accountIds": [
+      "binance",
+      "gate",
+      "ok"
+    ],
+    "dustThresholdUsd": 100,
+    "maxScreenedFinalists": 5,
+    "accountSpotChartMappings": {
+      "ok": {
+        "BTC": "OKX:BTCUSDT"
+      }
+    },
+    "underlyingChartMappings": {},
+    "unmappableInstruments": {}
+  },
+  "ashareAnalysis": {
+    "cacheMaxAgeMinutes": 10,
+    "maxFullRefreshesPerRun": 1,
+    "defaultOutput": "compact_summary",
+    "scope": "account_plus_explicit"
+  },
+  "profiles": {
+    "portfolio": {
+      "timeframes": [
+        "D",
+        "W",
+        "M",
+        "3M"
+      ],
+      "maxSymbols": 64,
+      "includeSlowSources": true
+    },
+    "targeted": {
+      "timeframes": [
+        "D",
+        "W"
+      ],
+      "maxSymbols": 8,
+      "includeSlowSources": false
+    },
+    "screen": {
+      "timeframes": [
+        "D"
+      ],
+      "maxSymbols": 24,
+      "includeSlowSources": false
+    },
+    "confirm": {
+      "timeframes": [
+        "W",
+        "M",
+        "3M"
+      ],
+      "maxSymbols": 5,
+      "includeSlowSources": true
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "x": {
+    "required": false,
+    "cacheMaxAgeMinutes": 30,
+    "maxQueries": 8,
+    "assetsPerQuery": 8,
+    "maxItemsPerQuery": 20,
+    "marketRiskQuery": "(bitcoin OR crypto) (exploit OR hack OR vulnerability OR delist OR outage OR unlock OR regulation)",
+    "assetRiskTerms": "(official OR exploit OR hack OR vulnerability OR delist OR outage OR migration OR unlock OR issuance)"
+  },
+  "binanceSquare": {
+    "required": false,
+    "marketOverview": true,
+    "hotCoin": true,
+    "maxDeepAssets": 5,
+    "deepTool": "binance_token_quote"
+  },
+  "sourceTiers": [
+    "project_exchange_regulator_security_official",
+    "reputable_research_and_institution",
+    "verified_reporter_or_domain_expert",
+    "community_author_and_kol"
+  ],
+  "policy": {
+    "mustReportUnavailableOrDegraded": true,
+    "mustNotPromoteFromSocialBuzz": true,
+    "requiredChecks": [
+      "official_project_update",
+      "security_exploit_or_chain_outage",
+      "team_inactive_or_abandoned",
+      "exchange_delisting_or_risk_label",
+      "token_migration_or_abnormal_issuance",
+      "unlock_or_supply_change",
+      "regulatory_event",
+      "sentiment_dislocation"
+    ]
+  }
+}

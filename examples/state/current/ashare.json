@@ -1,0 +1,32 @@
+{
+  "accountId": "ashare",
+  "orders": [],
+  "schemaVersion": 1,
+  "bots": [],
+  "verificationRequired": true,
+  "observedAt": "2019-01-01T00:00:00Z",
+  "source": "synthetic-example",
+  "positions": [
+    {
+      "eventId": "demo-position",
+      "market": "stock",
+      "symbol": "600000",
+      "recordId": "demo-stock",
+      "quantity": 100.0,
+      "updatedAt": "2019-01-02T08:00:00+08:00"
+    }
+  ],
+  "balances": [],
+  "proposedOrders": [],
+  "deferredOrders": [],
+  "reservedFunds": [],
+  "stoppedBots": [],
+  "executionEvents": [],
+  "pendingVerifications": [],
+  "failedEvents": [],
+  "transfers": [],
+  "appliedEventIds": [
+    "demo-position"
+  ],
+  "lastEventAt": "2019-01-02T08:00:00+08:00"
+}

@@ -1,0 +1,39 @@
+{
+  "accountId": "ok",
+  "orders": [
+    {
+      "eventId": "demo-order",
+      "market": "spot",
+      "symbol": "BTCUSDT",
+      "recordId": "demo-limit",
+      "side": "buy",
+      "type": "limit",
+      "price": 12345.0,
+      "quantity": 0.001,
+      "updatedAt": "2019-01-02T08:00:00+08:00",
+      "status": "open",
+      "originalQuantity": 0.001,
+      "filledQuantity": 0.0,
+      "remainingQuantity": 0.001
+    }
+  ],
+  "schemaVersion": 1,
+  "bots": [],
+  "verificationRequired": true,
+  "observedAt": "2019-01-01T00:00:00Z",
+  "source": "synthetic-example",
+  "positions": [],
+  "balances": [],
+  "proposedOrders": [],
+  "deferredOrders": [],
+  "reservedFunds": [],
+  "stoppedBots": [],
+  "executionEvents": [],
+  "pendingVerifications": [],
+  "failedEvents": [],
+  "transfers": [],
+  "appliedEventIds": [
+    "demo-order"
+  ],
+  "lastEventAt": "2019-01-02T08:00:00+08:00"
+}

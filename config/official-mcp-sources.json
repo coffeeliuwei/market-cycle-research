@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "tradingViewOfficial": {
+    "name": "tradingview-official",
+    "url": "https://mcp.tradingview.com/mcp",
+    "transport": "streamable-http",
+    "authentication": "oauth-2.1",
+    "required": false,
+    "enabledByDefault": false,
+    "accountPlan": "free",
+    "disabledReason": "TradingView Official MCP requires an Essential or higher paid plan.",
+    "minimumPlan": "Essential",
+    "usage": "preferred-read-only-agent-enrichment",
+    "fallback": "project-tradingview-screener-and-desktop-cdp"
+  },
+  "binanceOfficial": {
+    "name": "binance-official",
+    "url": "https://agent.binance.com/mcp/agentic",
+    "transport": "streamable-http",
+    "authentication": "oauth",
+    "required": false,
+    "enabledByDefault": false,
+    "allowedScopes": [
+      "Market data",
+      "Read account"
+    ],
+    "forbiddenScopes": [
+      "Trade",
+      "Transfer"
+    ],
+    "accountBoundary": "agentic-sub-account-only",
+    "usage": "optional-read-only-market-and-account-enrichment"
+  },
+  "binanceAI": {
+    "integrationType": "binance-product-beta",
+    "externalApiOrMcpPublished": false,
+    "directIntegration": false,
+    "note": "Do not treat the Binance AI in-product beta as an external API. Use the official Binance MCP endpoint for supported agent access."
+  }
+}

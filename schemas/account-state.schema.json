@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "account-state.schema.json",
+  "type": "object",
+  "required": ["schemaVersion", "accountId", "observedAt", "source", "positions", "orders", "bots"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "accountId": {"enum": ["binance", "ok", "gate", "ashare"]},
+    "observedAt": {"type": ["string", "null"]},
+    "source": {"type": "string"},
+    "verificationRequired": {"type": "boolean"},
+    "positions": {"type": "array"},
+    "orders": {"type": "array"},
+    "bots": {"type": "array"},
+    "notes": {"type": "array", "items": {"type": "string"}}
+  }
+}

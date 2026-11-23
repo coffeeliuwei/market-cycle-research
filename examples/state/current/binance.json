@@ -1,0 +1,31 @@
+{
+  "accountId": "binance",
+  "orders": [],
+  "schemaVersion": 1,
+  "bots": [],
+  "verificationRequired": true,
+  "observedAt": "2019-01-01T00:00:00Z",
+  "source": "synthetic-example",
+  "positions": [],
+  "balances": [
+    {
+      "eventId": "demo-balance",
+      "quantity": 1234.0,
+      "asset": "USDT",
+      "accountBucket": "spot",
+      "updatedAt": "2019-01-02T08:00:00+08:00"
+    }
+  ],
+  "proposedOrders": [],
+  "deferredOrders": [],
+  "reservedFunds": [],
+  "stoppedBots": [],
+  "executionEvents": [],
+  "pendingVerifications": [],
+  "failedEvents": [],
+  "transfers": [],
+  "appliedEventIds": [
+    "demo-balance"
+  ],
+  "lastEventAt": "2019-01-02T08:00:00+08:00"
+}
