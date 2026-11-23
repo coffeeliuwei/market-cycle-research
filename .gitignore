@@ -1,0 +1,12 @@
+*
+!/.gitignore
+!/README.md
+!/scripts/
+!/collectors/
+!/tests/
+!/scripts/get-weekly-cycle-context.ps1
+!/scripts/invoke-json-post.ps1
+!/collectors/ashare-market-data.py
+!/collectors/tradingview-screener-core.mjs
+!/collectors/tradingview-screener.mjs
+!/tests/tradingview-screener.test.mjs
