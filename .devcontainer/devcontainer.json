@@ -1,0 +1,9 @@
+{
+  "name": "Market Cycle Research Demo",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "features": {
+    "ghcr.io/devcontainers/features/powershell:2": {}
+  },
+  "postCreateCommand": "pwsh -NoProfile -File scripts/run-demo.ps1",
+  "postAttachCommand": "code state/runtime/demo-report.md"
+}

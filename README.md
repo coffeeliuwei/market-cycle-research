@@ -2,6 +2,22 @@
 
 面向 A 股、美股与数字资产的个人研究项目。包含行情采集、账户事件、持仓及挂单分析、研究知识库、月季预测与到期复核、周线周期提醒、历史回测和分析报告流程。仓库中的账户、交易事件、研究案例和初始化行情均为虚构样本。
 
+## 浏览器在线试用
+
+[用 GitHub Codespaces 打开](https://codespaces.new/coffeeliuwei/market-cycle-research?quickstart=1)
+
+登录 GitHub，有本仓库访问权限的试用者即可创建 Codespace。首次启动会安装 PowerShell、初始化虚构账户和合成行情，并打开生成的三市场周线报告。报告包含沪深300、SPY、BTC 的 Z 值、年度价格分位与回撤，并链接到账户总览。可在浏览器编辑器中切换到 Markdown 预览。
+
+体验其他模块时，可在 Codespaces 的终端运行下面的命令。
+
+```sh
+pwsh -NoProfile -File scripts/run-demo.ps1
+pwsh -NoProfile -File research/btc-paired.ps1
+pwsh -NoProfile -File tests/Run-All.ps1
+```
+
+在线环境使用离线样本，适合试用账户、周期和回测流程。依赖本机 TradingView Desktop 的实时采集按下方联网说明运行。Codespaces 的可用额度取决于试用者的 GitHub 账户。仓库目前为私有，向试用者分享时需先授予仓库访问权限。
+
 ## 首次使用（离线样本）
 使用 PowerShell 7，在仓库根目录运行：
 ```powershell

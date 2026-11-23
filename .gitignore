@@ -206,3 +206,6 @@
 !/tradingview-mcp/tests/target-selection.test.js
 !/tradingview-mcp/tests/wait.test.js
 !/WORKFLOW.md
+!/.devcontainer/
+!/.devcontainer/devcontainer.json
+!/scripts/run-demo.ps1
