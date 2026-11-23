@@ -6,7 +6,7 @@
 
 [用 GitHub Codespaces 打开](https://codespaces.new/coffeeliuwei/market-cycle-research?quickstart=1)
 
-登录 GitHub，有本仓库访问权限的试用者即可创建 Codespace。首次启动会安装 PowerShell、初始化虚构账户和合成行情，并打开生成的三市场周线报告。报告包含沪深300、SPY、BTC 的 Z 值、年度价格分位与回撤，并链接到账户总览。可在浏览器编辑器中切换到 Markdown 预览。
+登录 GitHub，有本仓库访问权限的试用者即可创建 Codespace。首次启动会安装 PowerShell、初始化虚构账户和合成行情，并打开生成的三市场样本分析。报告覆盖月季方向、周期预警、A 股板块筛选、分账户挂单复核、BTC 回测和行动清单。可在浏览器编辑器中切换到 Markdown 预览。
 
 体验其他模块时，可在 Codespaces 的终端运行下面的命令。
 
